@@ -264,7 +264,7 @@
 	<button class="btn-ikut">Ikut</button>
 	<button class="btn-enggak">Enggak</button>
 
-	<canvas ></canvas>
+	<canvas id="display-none"></canvas>
 
 	<!-- Animasi Mouse | JavaScript -->
 	<script type="text/javascript">
@@ -279,7 +279,7 @@
 
 			initCanvas();
 		});
-		if ($(window).width() > 300) {
+		if ($(window).width() > 100) {
 			var mouse = {
 				x: undefined,
 				y: undefined
