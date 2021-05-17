@@ -43,10 +43,8 @@
 		}
 
 		body {
-			display: flex; 
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
+			width: 100%;
+			height: 100vh;
 			background: #2a2b2f;
 			overflow: hidden;
 			-webkit-font-smoothing: antialiased;
@@ -63,21 +61,25 @@
 			cursor: none;
 		}
 
-		.arker-logo {
+		.content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+
+		.content .arker-logo {
 			position: absolute;
 			background-image: url(https://c.top4top.io/p_1959mtf411.png);
 			background-size: cover;
+			top: 24%;
 			width: 150px;
 			height: 150px;
-			margin-top: -185px;
 		}
 
-		.title {
+		.content .title {
 			position: absolute;
-			text-align: center;
-			top: 50%;
-  			left: 50%;
-			transform: translate(-50%, -50%);
+			top: 46%;
 			color: #ff2e63;
 			background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
 			background-position: 0;
@@ -87,11 +89,11 @@
 			font-size: 2em;
 			font-weight: 800;
 			letter-spacing: 2px;
-			margin-top: 35px;
 			animation: shine 2s linear infinite;
 			animation-fill-mode: forwards
   			-webkit-text-size-adjust: none
 		}
+
 		@keyframes shine {
   			0% {
     			background-position: 0;
@@ -104,17 +106,17 @@
   			}
   		}
 
-		.sub-title {
+		.content .sub-title {
 			position: absolute;
-			text-align: center;
+			top: 54%;
 			color: #ecf0f3;
 			font-family: 'Montserrat Alternates', cursive;
 			font-size: 0.95em;
 			font-weight: 600;
 			padding: 0 25px;
-			margin-top: 190px;
 			animation: blink-rainbow 4.5s linear infinite;
 		}
+
 		@keyframes blink-rainbow {
 			0% {color: #f9ed69}
 			14% {color: #00adb5}
@@ -126,8 +128,9 @@
 			100% {color: #ffa5a5}
 		}
 
-		.btn-ikut {
+		.content .btn-ikut {
 			position: absolute;
+			top: 68%;
 			width: 100px;
 			height: 35px;
 			border-radius: 30px;
@@ -137,15 +140,16 @@
 			font-family: 'Montserrat Alternates', cursive;
 			font-size: 1em;
 			outline: none;
-			margin: 0 0 -360px -140px;
+			margin: 0 0 0 -140px;
 			padding: 0 10px;
 			cursor: pointer;
 			z-index: 999;
 			animation: border 4.5s linear infinite;
 		}
 
-		.btn-enggak {
+		.content .btn-enggak {
 			position: absolute;
+			top: 68%;
 			width: 100px;
 			height: 35px;
 			border-radius: 30px;
@@ -155,7 +159,7 @@
 			font-family: 'Montserrat Alternates', cursive;
 			font-size: 1em;
 			outline: none;
-			margin: 0 0 -360px 140px;
+			margin: 0 0 0 140px;
 			padding: 0 10px;
 			cursor: pointer;
 			z-index: 999;
@@ -214,18 +218,30 @@
 			margin-top: 495px;
 		}
 
-		@media screen and (max-width: 465px) {
-			.arker-logo {
-				margin-top: -205px;
+		/* Responsive | Tablet */
+		@media screen and (max-width: 800px) {
+			.content .arker-logo {
+				top: 18%;
 			}
-			.title {
+			.content .title {
 				font-size: 1.8em;
-				margin-top: 55px;
+				top: 45%;
 			}
-			.sub-title {
+		}
+
+		/* Responsive | Mobile Phone */
+		@media screen and (max-width: 465px) {
+			.content .arker-logo {
+				top: 20%;
+			}
+			.content .title {
+				font-size: 1.8em;
+				top: 48%;
+			}
+			.content .sub-title {
 				font-size: 0.90em;
 				padding: 0 20px;
-				margin-top: 175px;
+				top: 57%;
 			}
 			@keyframes shine {
   				0% {
@@ -239,29 +255,10 @@
   				}
   			}
 
-			.btn-ikut {
-				font-size: 0.95em;
-				margin: 370px 0 0 -140px;
-			}
-			.btn-enggak {
-				font-size: 0.95em;
-				margin: 370px 0 0 140px;
-			}
-		}
-                
-                @media screen and (max-width: 365px) {
-			.title {
-				margin-top: 5px;
-			}
-			.sub-title {
-				margin-top: 135px;
-			}
-			.btn-ikut {
-				margin: 300px 0 0 -140px;
-			}
-			.btn-enggak {
-				margin: 300px 0 0 140px;
-			}
+  			.content .btn-ikut, 
+  			.content .btn-enggak {
+  				top: 75%;
+  			}
 		}
 	</style>
 </head>
@@ -271,13 +268,15 @@
     <div oncontextmenu="return false" style="display: none;" id="jumpscare"></div>
     <div oncontextmenu="return false" style="display: none;" id="non-jumpscare">Pilihan mu sangat tepat!</div>
 
-	<div class="arker-logo"></div>
-	<div class="title">It's Me Lief</div>
-	<div class="sub-title">Apa kamu ingin seumur hidupmu merusak website?
-		<br>atau<br>
-		ikut denganku meretas Nasa :v</div>
-	<button class="btn-ikut">Ikut</button>
-	<button class="btn-enggak">Enggak</button>
+    <div class="content">
+		<div class="arker-logo"></div>
+		<div class="title">It's Me Lief</div>
+		<div class="sub-title">Apa kamu ingin seumur hidupmu merusak website?
+			<br>atau<br>
+			ikut denganku meretas Nasa :v</div>
+		<button class="btn-ikut">Ikut</button>
+		<button class="btn-enggak">Enggak</button>
+	</div>
 
 	<canvas id="display-none"></canvas>
 
